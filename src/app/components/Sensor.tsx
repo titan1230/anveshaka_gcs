@@ -33,9 +33,3 @@ export default function Sensor() {
     </div>
   );
 }
-/*      <div className="grid grid-cols-3 gap-4 m-5 bg-base-100">
-<div className="flex justify-between">
-    <div className="text-2xl">Gyro Data:</div>
-    <div className="text-2xl">X: 0.5</div>
-</div>
-*/
