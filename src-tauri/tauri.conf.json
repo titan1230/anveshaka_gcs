@@ -55,11 +55,12 @@
     },
     "windows": [
       {
-        "fullscreen": false,
         "height": 600,
         "resizable": true,
         "title": "Ground Control",
-        "width": 800
+        "width": 800,
+        "maximized": true,
+        "fullscreen": true
       }
     ],
     "systemTray": {
