@@ -61,9 +61,9 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="flex items-start flex-wrap p-3 gap-10">
+      <div className="flex items-start flex-wrap p-5 gap-10">
         <div className="w-[58%] h-[500px] bg-black"></div>
-        <div className="w-[39%] h-[500px] bg-black"></div>
+        <div className="w-[39.32%] h-[500px] bg-black"></div>
       </div>
     </div>
   );
