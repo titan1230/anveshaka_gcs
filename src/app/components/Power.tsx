@@ -5,7 +5,7 @@ export default function Power(props : {connected: boolean}) {
     <div className="bg-base-100">
       <div className="card card-compact bg-base-200 m-5">
         <div className="card-body">
-          <p className="text-3xl font-bold">POWER STATISTICS</p>
+          <p className="text-3xl font-bold">Power Statistics</p>
           <div className="dataElements ml-5">
             {/* Battery Voltage */}
             <div className="flex justify-between">
