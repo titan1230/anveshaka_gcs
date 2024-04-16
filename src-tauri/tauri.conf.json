@@ -7,7 +7,7 @@
     "distDir": "../out"
   },
   "package": {
-    "productName": "anveshaka_gcs",
+    "productName": "Anveshaka Ground Control",
     "version": "0.1.0"
   },
   "tauri": {
