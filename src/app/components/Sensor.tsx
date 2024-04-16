@@ -1,9 +1,9 @@
 "use client";
 
-export default function Sensor() {
+export default function Sensor(props : {connected: boolean}) {
   return (
     <div className="bg-base-100">
-      <div className="card card-normal bg-base-200 m-5 w-2/5">
+      <div className="card card-compact bg-base-200 m-5">
         <div className="card-body">
           <p className="text-3xl font-bold">Sensor Live Data</p>
           <div className="dataElements ml-5">
