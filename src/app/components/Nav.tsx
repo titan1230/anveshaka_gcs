@@ -12,6 +12,7 @@ import toast, { Toaster } from "react-hot-toast";
 export default function Nav(props: { connected: boolean }) {
 
   const [battery, setBattery] = useState(100);
+  const [killed, setKilled] = useState(true);
 
   return (
     <div className="navbar bg-base-100">
@@ -21,11 +22,7 @@ export default function Nav(props: { connected: boolean }) {
         {props.connected ? <b className="text-2xl font-mono text-[#4fff48]">Rover Connected</b> : <b className="text-2xl font-mono text-[#ff4f4f]">Rover Disconnected</b>}
       </div>
       <div className="navbar-center">
-        <button className="btn btn-outline btn-error text-xl select-none" disabled={!props.connected} onClick={() => {
-          if (document) {
-            (document.getElementById('my_modal_1') as HTMLFormElement).showModal();
-          }
-        }}>KILL</button>
+        { killed ? <button className="btn btn-error text-xl no-animation"> {killed ? "ROVER KILLED" : ""} </button> : ""}
       </div>
       <div className="navbar-end">
         {props.connected ? <p className="mr-6 text-[#4fff48] text-2xl">CONNECTION STABLE</p> : <p className="mr-6 text-[#ff4f4f] text-2xl">CONNECTION LOST</p>}

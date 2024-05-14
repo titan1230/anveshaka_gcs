@@ -7,7 +7,9 @@ export default function PathPlanning() {
       <div className="card card-compact bg-base-200 m-5">
         <div className="card-body">
         <p className="text-3xl font-bold mb-3">Path Planning</p>
-          <Image priority src="https://cdn.discordapp.com/attachments/746595636995948614/1203606157340573696/can-you-connect-2-inventory-connectors-together-toms-simple-v0-94wt001q9gma1.png?ex=6624c315&is=66124e15&hm=61bc2505aca3c1784b4c744a25ff92e6fd1449d315e23c1d4425a7d6b003591b&" alt="Path Planning" width={800} height={600} />
+        <div className='h-[305px]'>
+          <Image priority src="https://cdn.discordapp.com/attachments/746595636995948614/1203606157340573696/can-you-connect-2-inventory-connectors-together-toms-simple-v0-94wt001q9gma1.png?ex=66446715&is=66431595&hm=655b132e72db35678c63d6b3142afbc35f63cbde1d43d70d3378eeb629c5b407&" alt="Path Planning" width={800} height={600} />
+        </div>
         </div>
       </div>
     </div>
