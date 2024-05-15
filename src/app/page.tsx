@@ -6,6 +6,8 @@ import Sensor from "./components/Sensor";
 import CamFeed from "./components/CamFeed";
 import Power from "./components/Power";
 import PathPlanning from "./components/PathPlanning";
+import Image from "next/image"
+import d from "@/../public/d.png"
 
 export default function Home() {
   const [data, setData] = useState<{ data: { num: number }, status: number }>({ data: { num: 0 }, status: 0 });
@@ -54,17 +56,21 @@ export default function Home() {
         </div>
         <div className="w-3/5 h-3/5 items-start">
           <CamFeed />
-          <div className="flex flex-wrap justify-start ml-4 mr-4 h-56 gap-[9.81px] mt-5 pt-4">  
+          <div className="flex flex-wrap ml-4 mr-4 h-56 gap-[9.81px] mt-5 pt-4 justify-center">  
+            {/* <div className="bg-black h-[290px] w-[290px] flex-shrink-0"></div>
             <div className="bg-black h-[290px] w-[290px] flex-shrink-0"></div>
-            <div className="bg-black h-[290px] w-[290px] flex-shrink-0"></div>
-            <div className="bg-black h-[290px] w-[290px] flex-shrink-0"></div>  
+            <div className="bg-black h-[290px] w-[290px] flex-shrink-0"></div>   */}
+            <Image src={d} alt="d" />
           </div>
         </div>
       </div>
-      <div className="flex items-start flex-wrap p-5 gap-10">
+      <div>
+      </div>
+      {/* <div className="flex items-start flex-wrap p-5 gap-10">
         <div className="w-[58%] h-[500px] bg-black"></div>
         <div className="w-[39.32%] h-[500px] bg-black"></div>
-      </div>
+      </div> */}
+      
     </div>
   );
 }

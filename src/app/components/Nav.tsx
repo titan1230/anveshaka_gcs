@@ -3,8 +3,6 @@
 import { FcHighPriority, FcCheckmark, FcAlarmClock, FcFullBattery, FcDeleteColumn } from "react-icons/fc";
 import { FaSatellite } from "react-icons/fa6";
 
-import Image from 'next/image';
-
 import { useState } from "react";
 import Counter from "./Counter";
 import toast, { Toaster } from "react-hot-toast";
@@ -12,7 +10,7 @@ import toast, { Toaster } from "react-hot-toast";
 export default function Nav(props: { connected: boolean }) {
 
   const [battery, setBattery] = useState(100);
-  const [killed, setKilled] = useState(true);
+  const [killed, setKilled] = useState(false);
 
   return (
     <div className="navbar bg-base-100">
