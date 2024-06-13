@@ -1,6 +1,22 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 export default function Power(props: { connected: boolean }) {
+
+  const [pow , setPow] = useState(500);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+
+      const pow1 = Math.floor(Math.random() * (600 - 400 + 1)) + 400;
+
+      setPow(pow1);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [])
+
   return (
 
     <div className="bg-base-100">
@@ -22,11 +38,7 @@ export default function Power(props: { connected: boolean }) {
             </div>
             <div className="flex justify-between">
               <div className="text-lg flex-1">Motor Power:</div>
-              <div className="text-lg flex-none">500W</div>
-            </div>
-            <div className="flex justify-between">
-              <div className="text-lg flex-1"> {`Temperature <CORE | ENV>`} :</div>
-              <div className="text-lg flex-none">60℃</div>
+              <div className="text-lg flex-none">{`${pow} W`}</div>
             </div>
           </div>
         </div>
