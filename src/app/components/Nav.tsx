@@ -24,7 +24,7 @@ export default function Nav(props: { connected: boolean }) {
       <div className="navbar-end">
         {props.connected ? <p className="mr-6 text-[#4fff48] text-2xl">CONNECTION STABLE</p> : <p className="mr-6 text-[#ff4f4f] text-2xl">CONNECTION LOST</p>}
         <FaSatellite className="text-2xl mr-6" color={props.connected ? "#4fff48" : "#ff4f4f"} />
-        <div className="pr-2 tooltip tooltip-error tooltip-bottom flex hover:tooltip-open items-center justify-center" data-tip="error">
+        <div className="pr-2 flex hover:tooltip-open items-center justify-center" data-tip="error">
           <FcAlarmClock className="text-2xl mr-2" />
           <Counter c={props.connected} />
         </div>
