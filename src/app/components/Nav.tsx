@@ -1,6 +1,6 @@
 "use client";
 
-import { FcHighPriority, FcCheckmark, FcAlarmClock, FcFullBattery, FcDeleteColumn } from "react-icons/fc";
+import { FcHighPriority, FcCheckmark, FcAlarmClock    , FcDeleteColumn } from "react-icons/fc";
 import { FaSatellite } from "react-icons/fa6";
 
 import { useState } from "react";
@@ -9,7 +9,6 @@ import toast, { Toaster } from "react-hot-toast";
 
 export default function Nav(props: { connected: boolean }) {
 
-  const [battery, setBattery] = useState(100);
   const [killed, setKilled] = useState(false);
 
   return (
@@ -25,7 +24,6 @@ export default function Nav(props: { connected: boolean }) {
       <div className="navbar-end">
         {props.connected ? <p className="mr-6 text-[#4fff48] text-2xl">CONNECTION STABLE</p> : <p className="mr-6 text-[#ff4f4f] text-2xl">CONNECTION LOST</p>}
         <FaSatellite className="text-2xl mr-6" color={props.connected ? "#4fff48" : "#ff4f4f"} />
-        {props.connected ? <FcFullBattery className="text-2xl mr-3" title="Battery %" /> : <FcDeleteColumn className="text-2xl mr-3" title="LOST !!!" />}
         <div className="pr-2 tooltip tooltip-error tooltip-bottom flex hover:tooltip-open items-center justify-center" data-tip="error">
           <FcAlarmClock className="text-2xl mr-2" />
           <Counter c={props.connected} />

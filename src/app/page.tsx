@@ -83,10 +83,10 @@ export default function Home() {
         <div className="w-2/5 h-auto">
           <Sensor connected={connected} />
           {/* <Power connected={connected} /> */}
-          {/* <PathPlanning /> */}
+          <PathPlanning />
         </div>
         <div className="w-3/5 h-3/5 items-start">
-          <CamFeed />
+          {/* <CamFeed /> */}
 
           {/* <div className="container grid grid-cols-2 gap-x-5 gap-y-5 pr-4">
             <Image src={g1} alt="d" width={440} height={330} className="w-[430px] h-[320px] ml-4" />

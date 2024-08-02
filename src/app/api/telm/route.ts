@@ -13,7 +13,7 @@ export async function GET(request: Request) {
             "data": data,
             "code": res.status
         })
-    } catch (error) { 
+    } catch (error) { ``
         return NextResponse.json({
             "data": {
                 "num": "error"
