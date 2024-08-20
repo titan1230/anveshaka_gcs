@@ -24,7 +24,7 @@ export default function PathPlanning() {
       <div className="card card-compact bg-base-200 m-5">
         <div className="card-body">
           <p className="text-3xl font-bold mb-3">Path Planning</p>
-          <img src="http://192.168.15.168:8088/" alt="Rover Cam Feed" className='h-3/5 pt-1' />
+          <img src="http://192.168.254.167:8088/path" alt="Rover Cam Feed" className='h-3/5 pt-1' />
         </div>
       </div>
     </div>
