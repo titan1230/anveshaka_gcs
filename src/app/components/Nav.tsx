@@ -1,15 +1,30 @@
 "use client";
 
-import { FcHighPriority, FcCheckmark, FcAlarmClock    , FcDeleteColumn } from "react-icons/fc";
+import { FcHighPriority, FcCheckmark } from "react-icons/fc";
 import { FaSatellite } from "react-icons/fa6";
 
 import { useState } from "react";
-import Counter from "./Counter";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
+
+interface Stars {
+  "1": number[];
+  "2": number[];
+  "3": number[];
+  "4": number[];
+  "5": number[];
+}
 
 export default function Nav(props: { connected: boolean }) {
 
   const [killed, setKilled] = useState(false);
+
+  const [stars, setStars] = useState<Stars>({
+    "1": [0, 0],
+    "2": [0, 0],
+    "3": [0, 0],
+    "4": [0, 0],
+    "5": [0, 0],
+  })
 
   return (
     <div className="navbar bg-base-100">
@@ -19,54 +34,50 @@ export default function Nav(props: { connected: boolean }) {
         {props.connected ? <b className="text-2xl font-mono text-[#4fff48]">Rover Connected</b> : <b className="text-2xl font-mono text-[#ff4f4f]">Rover Disconnected</b>}
       </div>
       <div className="navbar-center">
-        { killed ? <button className="btn btn-error text-xl no-animation"> {killed ? "ROVER KILLED" : ""} </button> : ""}
+        <button className="btn btn-accent" onClick={() => (document.getElementById('my_modal_2') as HTMLDialogElement)?.showModal()}>STAR COORDS</button>
+        <dialog id="my_modal_2" className="modal">
+          <div className="modal-box">
+            {/* Table with 5 rows and 2 columns */}
+            <table className="min-w-full bg-base-200 border border-gray-300 rounded-lg">
+              <thead>
+                <tr>
+                  <th className="py-2 px-4 bg-base-300 border-b text-center">Stars</th>
+                  <th className="py-2 px-4 bg-base-300 border-b text-center">Coords</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="bg-base-200">
+                  <td className="py-2 px-4 border-b text-center">1</td>
+                  <td className="py-2 px-4 border-b text-center">{`X: ${stars["1"][0]}, Y: ${stars["1"][1]}`}</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border-b text-center">2</td>
+                  <td className="py-2 px-4 border-b text-center">{`X: ${stars["2"][0]}, Y: ${stars["2"][1]}`}</td>
+                </tr>
+                <tr className="bg-base-200">
+                  <td className="py-2 px-4 border-b text-center">3</td>
+                  <td className="py-2 px-4 border-b text-center">{`X: ${stars["3"][0]}, Y: ${stars["3"][1]}`}</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border-b text-center">4</td>
+                  <td className="py-2 px-4 border-b text-center">{`X: ${stars["4"][0]}, Y: ${stars["4"][1]}`}</td>
+                </tr>
+                <tr className="bg-base-200">
+                  <td className="py-2 px-4 border-b text-center">5</td>
+                  <td className="py-2 px-4 border-b text-center">{`X: ${stars["5"][0]}, Y: ${stars["5"][1]}`}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <form method="dialog" className="modal-backdrop">
+            <button>close</button>
+          </form>
+        </dialog>
       </div>
       <div className="navbar-end">
-        {props.connected ? <p className="mr-6 text-[#4fff48] text-2xl">CONNECTION STABLE</p> : <p className="mr-6 text-[#ff4f4f] text-2xl">CONNECTION LOST</p>}
+        {/* {props.connected ? <p className="mr-6 text-[#4fff48] text-2xl">CONNECTED</p> : <p className="mr-6 text-[#ff4f4f] text-2xl">CONNECTION LOST</p>} */}
         <FaSatellite className="text-2xl mr-6" color={props.connected ? "#4fff48" : "#ff4f4f"} />
-        <div className="pr-2 flex hover:tooltip-open items-center justify-center" data-tip="error">
-          <FcAlarmClock className="text-2xl mr-2" />
-          <Counter c={props.connected} />
-        </div>
       </div>
-      <dialog id="my_modal_1" className="modal">
-        <div className="modal-box bg-[#1d232a]">
-          <h3 className="font-bold text-lg text-center">WARNING</h3>
-          <p className="pt-4">THIS WILL TERMINATE THE THINGY</p>
-          <p className="pb-4">PROCEED WITH CAUTION</p>
-          <br />
-          <div className="flow-root">
-            <button className="btn btn-error float-left" onClick={() => {
-              if (document) {
-                (document.getElementById('my_modal_1') as HTMLFormElement).close();
-              }
-              
-              const t = toast.loading('Working...', { position : 'bottom-right' });
-              fetch('http://localhost:4561/kill', { cache: "no-store", method: 'GET' })
-                .then(response => {
-                  if (response.ok) {
-                    toast.success('Process Killed', { id: t });
-                  } else {
-                    toast.error('Error in Killing' , { id: t });
-                  }
-                })
-                .catch((error) => {
-                  toast.error('Error in Killing' , { id: t });
-                });
-
-            }}>KILL</button>
-            <button className="btn btn-success float-right" onClick={() => {
-              if (document) {
-                (document.getElementById('my_modal_1') as HTMLFormElement).close();
-              }
-            }}>CANCEL</button>
-          </div>
-
-        </div>
-        <form method="dialog" className="modal-backdrop">
-          <button>close</button>
-        </form>
-      </dialog>
 
     </div>
   )
