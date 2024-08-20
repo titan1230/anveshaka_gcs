@@ -27,7 +27,7 @@ export default function Sensor(props: { connected: boolean }) {
   })
 
   useEffect(() => {
-    const socket = new WebSocket("ws://192.168.137.237:8765")
+    const socket = new WebSocket("ws://192.168.254.167:8765")
 
     socket.onmessage = (event) => {
 
@@ -53,42 +53,42 @@ export default function Sensor(props: { connected: boolean }) {
             <div className="ml-5 mr-5">
               {/* GYRO SENSOR */}
               <div className="flex justify-between">
-                <div className="text-lg flex-1">Gyroscope Data:</div>
+                <div className="text-lg flex-1 ">Gyroscope Data:</div>
                 <div className="text-lg flex-none">{`X: ${data.gyroscope[0].toFixed(2)}`}<sup>c/s</sup>{` | Y: ${data.gyroscope[1].toFixed(2)}`}<sup>c/s</sup>{` | Z: ${data.gyroscope[2].toFixed(2)}`}<sup>c/s</sup></div>
               </div>
               {/* COMPASS */}
               <div className="flex justify-between">
                 <div className="text-lg flex-1">Magnetometer Data:</div>
-                <div className="text-lg flex-none">{`X: ${data.magnetometer[0].toFixed(2)}T | Y: ${data.magnetometer[1].toFixed(2)}T | Z: ${data.magnetometer[2].toFixed(2)}T`}</div>
+                <div className="text-lg flex-none">{`X: ${data.magnetometer[0].toFixed(2)}µT | Y: ${data.magnetometer[1].toFixed(2)}µT | Z: ${data.magnetometer[2].toFixed(2)}µT`}</div>
               </div>
               {/* TEMP SENSOR */}
               <div className="flex justify-between">
                 <div className="text-lg flex-1"> {`Temperature`} :</div>
-                <div className="text-lg flex-none">{`${data.temperature.toFixed(2)}°`}</div>
+                <div className="text-lg flex-none">{`${data.temperature}℃`}</div>
               </div>
               {/* ACCELEROMETER */}
               <div className="flex justify-between">
-                <div className="text-lg flex-1">Accelerometer Data:</div>
+                <div className="text-lg flex-1 mr-5 ">Accelerometer:</div>
                 <div className="text-lg flex-none">{`X: ${data.accelerometer[0].toFixed(2)}m/s² | Y: ${data.accelerometer[1].toFixed(2)}m/s² | Z: ${data.accelerometer[2].toFixed(2)}m/s²`}</div>
               </div>
               {/* EULER ANGLE */}
               <div className="flex justify-between">
-                <div className="text-lg flex-1">Euler Angle:</div>
+                <div className="text-lg flex-1 ">Euler Angle:</div>
                 <div className="text-lg flex-none">{`X: ${data.euler_angle[0].toFixed(2)}° | Y: ${data.euler_angle[1].toFixed(2)}° | Z: ${data.euler_angle[2].toFixed(2)}°`}</div>
               </div>
               {/* QUATERNION */}
               <div className="flex justify-between">
-                <div className="text-lg flex-1">Quaternion:</div>
+                <div className="text-lg flex-1 ">Quaternion:</div>
                 <div className="text-lg flex-none">{`X: ${data.quaternion[0].toFixed(2)} | Y: ${data.quaternion[1].toFixed(2)} | Z: ${data.quaternion[2].toFixed(2)} | W: ${data.quaternion[3].toFixed(2)}`}</div>
               </div>
                 {/* LINEAR ACCELERATION */}
                 <div className="flex justify-between">
-                  <div className="text-lg flex-1">Linear Acceleration:</div>
+                  <div className="text-lg flex-1 ">Linear Acceleration:</div>
                   <div className="text-lg flex-none">{`X: ${data.linear_acceleration[0].toFixed(2)}m/s² | Y: ${data.linear_acceleration[1].toFixed(2)}m/s²`}</div>
                 </div> 
               {/* GRAVITY */}
               <div className="flex justify-between">
-                <div className="text-lg flex-1">Gravity:</div>
+                <div className="text-lg flex-1 ">Gravity:</div>
                 <div className="text-lg flex-none">{`X: ${data.gravity[0].toFixed(2)}m/s² | Y: ${data.gravity[1].toFixed(2)}m/s² | Z: ${data.gravity[2].toFixed(2)}m/s²`}</div>
               </div>
             </div>
