@@ -3,14 +3,14 @@ import { NextResponse } from "next/server"
 export async function GET(request: Request) {
 
     try {
-        const res = await fetch('http://localhost:4561/ping', {
+        const res = await fetch('http://192.168.254.167:8088', {
             headers: {
                 'Content-Type': 'application/json',
             }, cache: "no-store"
         })
-        const data = await res.text()
-        return new NextResponse(data, { status: 200 });
+        return new NextResponse( "" ,{ status: 200 });
     } catch (error) { 
-        return new NextResponse("Error", { status: 500 });
+        console.log(error);
+        return new NextResponse("error", { status: 500 });
     }
 }
